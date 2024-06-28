@@ -1,0 +1,19 @@
+<div class="grid gap-2 items-center min-[500px]:flex min-[500px]:justify-between w-[100%] grid-cols-1">
+  <p-inputNumber class="h-14"
+                 mode="decimal"
+                 [useGrouping]="false"
+                 [formControl]="currencyForm.controls.amount"
+                 (focus)="onTouched()"
+  />
+  <p-dropdown class="h-14 flex flex-1 leading-9"
+              [formControl]="currencyForm.controls.currency"
+              [options]="currencies"
+              optionLabel="short_code"
+              optionValue="short_code">
+    <ng-template let-currency pTemplate="optionLabel">
+            <div>
+                {{currency.short_code}} - {{currency.name}}
+            </div>
+    </ng-template>
+  </p-dropdown>
+</div>
